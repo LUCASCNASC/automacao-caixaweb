@@ -27,23 +27,21 @@
 Cypress.Commands.add('login', (username, password) => {
   
     // Visite a página de login
-    cy.visit('http://10.7.0.42:2701/');
+    cy.visit('http://10.7.0.87/#/login');
   
     // Preencha o campo de nome de usuário
-    cy.get('#txtusername').type('sabium.automacao');
+    cy.get('#usuario').type('lucas.camargo');
   
     // Preencha o campo de senha
-    cy.get('#txtpassword').type('123.automacao');
+    cy.get('#senha').type('@Lcn1998');
   
     // Submeta o formulário de login
-    cy.get('.test_btnSalvarCliente').click();
+    cy.get('#btn-login').click();
   
-    cy.get('.ng-scope > .ng-binding')
-      .should('contain','Entrando no sistema') //Validando mensagem "Entrando no sistema" logo após clicarmos no botão Entrar
-    
-    cy.wait(6500)
+    cy.wait(1000)
   
-    cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-      .should('contain','Cliente') //Validando se realmente fez o login
+    cy.get('.sbm-logotipo-topo')
+      .should('exist') //Validando se realmente fez o login
+      .and('be.visible')
   
-  });
+  })
