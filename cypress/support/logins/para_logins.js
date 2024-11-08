@@ -89,6 +89,8 @@ export function botaoEsqueciMinhaSenha (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', ' Esqueci minha senha ')
+        .and('have.css', 'color', 'rgb(74, 117, 197)')
+
 }
 
 //clicar no botão LOGIN
@@ -100,6 +102,7 @@ export function clicarBotaoLogin (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', ' Login ')
+        .and('have.css', 'background-color', 'rgb(74, 117, 197)')
         .click()
 }
 
@@ -149,6 +152,7 @@ export function modalLoginAcessoNegado (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', 'Não')
+        .and('have.css', 'background-color', 'rgb(110, 120, 129)')
 
     //validando botão Ok
     cy.get('.swal2-confirm')
@@ -156,6 +160,7 @@ export function modalLoginAcessoNegado (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', 'Ok')
+        .and('have.css', 'background-color', 'rgb(112, 102, 224)')
 }
 
 //clicar e validar botão Esqueci minha senha
@@ -203,6 +208,7 @@ export function botaoRecuperarSenha (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', ' Recuperar ')
+        .and('have.css', 'background-color', 'rgb(74, 117, 197)')
 }
 
 //Validar botão VOLTAR - recuepração de senha
@@ -213,4 +219,45 @@ export function botaoVoltarSenha (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', ' Voltar ')
+        .and('have.css', 'background-color', 'rgb(232, 176, 0)')
+}
+
+//validando modal Acesso Negado por usuário estar conectado em outra sessão
+export function acessoNegadoOutraConexao (selector) {
+
+    //validando ícone de acesso negado
+    cy.get('.swal2-icon')
+        .should('exist')
+        .and('be.visible')
+
+    //validando título do modal "Acesso negado!"
+    cy.get('#swal2-title')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Acesso negado!')
+
+    //validando mensagem principal
+    cy.get('#swal2-html-container')
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', 'Usuário')
+        .and('contain.text', 'está conectado em outra sessão.')
+        .and('contain.text', 'IP:')
+        .and('contain.text', 'Deseja desconectar a outra sessão aberta?')
+
+    //validando botão Não
+    cy.get('.swal2-cancel')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', 'Não')
+        .and('have.css', 'background-color', 'rgb(110, 120, 129)')
+
+    //validando botão Ok
+    cy.get('.swal2-confirm')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', 'Sim')
+        .and('have.css', 'background-color', 'rgb(112, 102, 224)')
 }

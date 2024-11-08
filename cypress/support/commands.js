@@ -36,12 +36,11 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('#senha').type('@Lcn1998');
   
     // Submeta o formulário de login
-    cy.get('#btn-login').click();
+    cy.get('#btn-login').click()
   
     cy.wait(1000)
   
     cy.get('.sbm-logotipo-topo')
       .should('exist') //Validando se realmente fez o login
       .and('be.visible')
-  
   })

@@ -31,8 +31,6 @@ describe('Logins', () => {
             botaoRecuperarSenha()
 
             botaoVoltarSenha()
-
-
         })
     })
 })
