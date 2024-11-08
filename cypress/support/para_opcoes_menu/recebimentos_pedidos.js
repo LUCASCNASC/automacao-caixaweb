@@ -43,8 +43,8 @@ export function janelaRecebimentoPedidos (selector) {
         .and('not.be.disabled')
 }
 
-//layout passos 1, 2 e 3
-export function barraProgressoRecebPedidos (selector) {
+//validando título "Recebimento de pedidos" e barra de pedidos
+export function paginaRecebimentoPedidos (selector) {
 
     //validando inteiro
     cy.get('.barra-progresso')
@@ -78,10 +78,6 @@ export function barraProgressoRecebPedidos (selector) {
         .should('contain', 'Resumo')
         .and('exist')
         .and('be.visible')
-}
-
-//validando título "Recebimento de pedidos"
-export function paginaRecebimentoPedidos (selector) {
 
     //validando "Recebimento de pedidos"
     cy.get('#frmRecebimentoPedidos_GrupoInfo_fieldset_legend')
@@ -100,6 +96,10 @@ export function paginaRecebimentoPedidos (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.value', '')
+}
+
+//botão Pesquisar da tela de Recebimento de pedidos
+export function botaoPesquisarRecebimentoPedidos (selector) {
 
     //botão pequisar nome
     cy.get('#frmRecebimentoPedidos_FiltrarBtnPesquisar_material_button > .mat-button-wrapper')
@@ -116,6 +116,16 @@ export function paginaRecebimentoPedidos (selector) {
 
     //botão pesquisar inteiro
     cy.get('#frmRecebimentoPedidos_FiltrarBtnPesquisar_material_button')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+}
+
+//botão Mostrar/ Ocultas colunas
+export function clicarBotaoMonstrarOcultarColunas (selector) {
+
+    //clicando e validando botão
+    cy.get('#frmRecebimentoPedidos_GridPedidosgrid__show-hide-data-grid-columns_material_button > .mat-button-wrapper > .mat-icon')
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')

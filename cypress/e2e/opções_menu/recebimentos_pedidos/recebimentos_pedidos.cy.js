@@ -1,6 +1,7 @@
 //Importando funções 
 import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
-import { clicarRecebimentoPedidos, janelaRecebimentoPedidos, barraProgressoRecebPedidos, paginaRecebimentoPedidos } from '../../../support/para_opcoes_menu/recebimentos_pedidos';
+import { clicarRecebimentoPedidos, janelaRecebimentoPedidos, paginaRecebimentoPedidos, botaoPesquisarRecebimentoPedidos, 
+         clicarBotaoMonstrarOcultarColunas } from '../../../support/para_opcoes_menu/recebimentos_pedidos';
 
 
 describe('Entrando no Recebimento de pedidos', () => {
@@ -30,11 +31,15 @@ describe('Entrando no Recebimento de pedidos', () => {
 
             iconeCarregamento()
 
-            cy.wait(4000)
-
-            barraProgressoRecebPedidos()
+            cy.wait(4500)
 
             paginaRecebimentoPedidos()
+
+            //fazer botão exclusivo para campo Pedido
+
+            botaoPesquisarRecebimentoPedidos()
+
+            clicarBotaoMonstrarOcultarColunas()
 
            
         })
