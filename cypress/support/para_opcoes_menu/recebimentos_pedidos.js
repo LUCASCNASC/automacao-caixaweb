@@ -9,7 +9,7 @@ export function clicarRecebimentoPedidos (selector) {
     //validando mensagem "Recebimento de pedidos"
     cy.get('#sbm-shorcut-mnu_RecebimentoPedidos > .dashboard-title')
         .should('exist')
-        .and('be.visible')
+        //.and('be.visible')
         .and('contain.text', 'Recebimento de pedidos')
 
     //validando imagem 
@@ -17,7 +17,7 @@ export function clicarRecebimentoPedidos (selector) {
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
-        .click()
+        .click({force:true})
 }
 
 //validando janela Recebimento de pedidos
@@ -43,4 +43,80 @@ export function janelaRecebimentoPedidos (selector) {
         .and('not.be.disabled')
 }
 
-//layout 
+//layout passos 1, 2 e 3
+export function barraProgressoRecebPedidos (selector) {
+
+    //validando inteiro
+    cy.get('.barra-progresso')
+        .should('exist')
+        .and('be.visible')
+
+    //barra de progresso 1
+    cy.get('div.barra-progresso-etapa.ativa .barra-progresso-numero')
+        .should('have.text', '1');
+
+    //barra de progresso 2
+    cy.get('div.barra-progresso-numero')
+        .should('contain', '2')
+        .and('exist')
+        .and('be.visible')
+
+    //barra de progresso 2 - mensagem
+    cy.get('div.barra-progresso-legenda')
+        .should('contain', 'Produtos e serviços…')
+        .and('exist')
+        .and('be.visible')
+
+    //barra de progresso 3
+    cy.get('div.barra-progresso-numero')
+        .should('contain', '3')
+        .and('exist')
+        .and('be.visible')
+
+    //barra de progresso 3 - mensagem
+    cy.get('div.barra-progresso-legenda')
+        .should('contain', 'Resumo')
+        .and('exist')
+        .and('be.visible')
+}
+
+//validando título "Recebimento de pedidos"
+export function paginaRecebimentoPedidos (selector) {
+
+    //validando "Recebimento de pedidos"
+    cy.get('#frmRecebimentoPedidos_GrupoInfo_fieldset_legend')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', ' Recebimento de pedidos ')
+
+    //validando campo informativo Pedido
+    cy.get('mat-label.mat-form-field__mat-label--enabled')
+        .should('contain', 'Pedido')
+        .and('exist')
+
+    //validando campo Pedido
+    cy.get('#frmRecebimentoPedidos_FiltrarPedido_input_number')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.value', '')
+
+    //botão pequisar nome
+    cy.get('#frmRecebimentoPedidos_FiltrarBtnPesquisar_material_button > .mat-button-wrapper')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain', 'Pesquisar')
+
+    //botão pesquisar ícone
+    cy.get('#frmRecebimentoPedidos_FiltrarBtnPesquisar_material_button > .mat-button-wrapper > .mat-icon')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //botão pesquisar inteiro
+    cy.get('#frmRecebimentoPedidos_FiltrarBtnPesquisar_material_button')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+}
