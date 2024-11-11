@@ -1,6 +1,6 @@
 //Importando funções 
 import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
-import { clicarBloquearCaixa, modalTelaBloqueio, confirmarBloqueioCaixa } from '../../../support/para_opcoes_menu/bloquear_caixa';
+import { clicarBloquearCaixa, modalTelaBloqueio, confirmarBloqueioCaixa } from '../../../support/para_opcoes_menu/para_bloquear_caixa';
 
 
 describe('Entrando no Bloquear caixa', () => {

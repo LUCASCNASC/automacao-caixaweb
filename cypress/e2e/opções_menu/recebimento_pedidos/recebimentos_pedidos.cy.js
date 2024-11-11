@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarRecebimentoPedidos, janelaRecebimentoPedidos, paginaRecebimentoPedidos, botaoPesquisarRecebimentoPedidos, 
-         clicarBotaoMonstrarOcultarColunas } from '../../../support/para_opcoes_menu/recebimentos_pedidos';
+         clicarBotaoMonstrarOcultarColunas } from '../../../support/para_opcoes_menu/para_recebimento_pedidos.js';
 
 
 describe('Entrando no Recebimento de pedidos', () => {
@@ -40,8 +40,6 @@ describe('Entrando no Recebimento de pedidos', () => {
             botaoPesquisarRecebimentoPedidos()
 
             clicarBotaoMonstrarOcultarColunas()
-
-           
         })
     })
 })

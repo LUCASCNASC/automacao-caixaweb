@@ -1,5 +1,3 @@
-
-
 //validando e clicando no caixa fechado
 export function clicarCaixaFechado (selector) {
 
@@ -22,6 +20,8 @@ export function clicarAbrirCaixa (selector) {
 
     //validando mensagem "Abertura do caixa"
     cy.get('#sbm-shorcut-mnu_AbrirCaixa > .dashboard-title')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
         .and('contain.text', 'Abertura do caixa')
@@ -1084,7 +1084,7 @@ export function messCaixaFechadoSucesso (selector) {
     cy.get(':nth-child(2) > .mat-card-content')
         .should('exist')
         .and('be.visible')
-        .and('contain', 'O caixa foi fechado com sucesso!')
+        .and('contain', 'O caixa foi aberto com sucesso!')
 }
 
 //Abrir caixa passando Valor e Observações
@@ -1144,4 +1144,23 @@ export function valorAbrirCaixa (selector) {
         .click()
 
 
+}
+
+//validando e clicando no caixa fechado - Fechamento obrigatório do caixa
+export function abrirFechamentoObrigatoriaCaixa (selector) {
+
+    //validando mensagem "Fechamento obrigatório do caixa"
+    cy.get('#sbm-shorcut-mnu_FecharCaixa > .dashboard-title')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', 'Fechamento obrigatório do caixa')
+
+    //validando imagem 
+    cy.get('#sbm-shorcut-mnu_FecharCaixa')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
 }
