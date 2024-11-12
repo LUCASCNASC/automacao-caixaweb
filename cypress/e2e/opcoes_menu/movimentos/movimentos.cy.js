@@ -3,9 +3,9 @@ import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/p
 import { clicarMovimentos, janelaMovimentos, selecionarFiltroAbertura, clicarPesquisarTipoMovimento, selecionarFiltroAberturaFalta, 
          selecionarFiltroAberturaSobra, selecionarFiltroFechamento, selecionarFiltroFechamentoSobra, selecionarFiltroFechamentoFalta, 
          selecionarFiltroPagamentoDiverso, selecionarFiltroRecebimentoDiverso, selecionarFiltroRecargaCelular, selecionarFiltroRecebimentoPedido,
-         selecionarFiltroRecebimentoTitulo, selecionarFiltroSangria, selecionarFiltroSuprimento, selecionarFiltroTrocaOperador
-        } from '../../../support/para_opcoes_menu/para_movimentos';
-
+         selecionarFiltroRecebimentoTitulo, selecionarFiltroSangria, selecionarFiltroSuprimento, selecionarFiltroTrocaOperador,
+         selecionarFiltroTrocaOperadorFalta, selecionarFiltroTrocaOperadorSobra, selecionarFiltroTransferenciaCCEntrada, 
+         selecionarFiltroTransferenciaCCSaida } from '../../../support/para_opcoes_menu/para_movimentos';
 
 describe('Entrando no Recebimento de pedidos', () => {
 
@@ -122,6 +122,32 @@ describe('Entrando no Recebimento de pedidos', () => {
             clicarPesquisarTipoMovimento()
         })
 
-        //parado na Troca de operador
+        it('Entrando no Recebimento de títulos - Pesquisar por "Troca de operador com falta', () => {
+
+            selecionarFiltroTrocaOperadorFalta()
+
+            clicarPesquisarTipoMovimento()
+        })
+
+        it('Entrando no Recebimento de títulos - Pesquisar por "Troca de operador com sobra', () => {
+
+            selecionarFiltroTrocaOperadorSobra()
+
+            clicarPesquisarTipoMovimento()
+        })
+
+        it('Entrando no Recebimento de títulos - Pesquisar por "Transferencia C.C. entrada', () => {
+
+            selecionarFiltroTransferenciaCCEntrada()
+
+            clicarPesquisarTipoMovimento()
+        })
+
+        it('Entrando no Recebimento de títulos - Pesquisar por "Transferencia C.C. saída', () => {
+
+            selecionarFiltroTransferenciaCCSaida()
+
+            clicarPesquisarTipoMovimento()
+        })
     })
 })

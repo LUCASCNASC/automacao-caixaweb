@@ -29,3 +29,16 @@ export function clicarCaixa (selector) {
         .and('not.be.disabled')
         .click()
 }
+
+//validando e clicando no ícone do menu lateral
+export function clicarIconeMenuLateral (selector) {
+
+    //validando e clicando no menu lateral
+    cy.get('.mat-icon.material-icons.mat-icon-no-color')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    cy.contains('mat-icon', 'menu')
+        .click()
+}

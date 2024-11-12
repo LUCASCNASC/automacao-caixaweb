@@ -532,3 +532,111 @@ export function selecionarFiltroTrocaOperador (selector) {
     cy.get('#mat-option-19 > .mat-option-text > .ng-star-inserted')
         .click({force:true})
 }
+
+//pesquisar por Troca de operador com falta
+export function selecionarFiltroTrocaOperadorFalta (selector) {
+
+    //validando texto "FILTRAR"
+    cy.get('#frmMovimentos_GrupoFiltrar_fieldset_legend')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', ' FILTRAR ')
+
+    //validando Tipo de movimento
+    cy.contains('mat-label', 'Tipo de movimento')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', 'Tipo de movimento')
+
+    //clicar para abrir as opções de filtro
+    cy.get('#frmMovimentos_FiltrarTipoDocumento_dropdown')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //escolher opção "Troca de operador com falta"
+    cy.get('#mat-option-20 > .mat-option-text > .ng-star-inserted')
+        .click({force:true})
+}
+
+//pesquisar por Troca de operador com sobra
+export function selecionarFiltroTrocaOperadorSobra (selector) {
+
+    //validando texto "FILTRAR"
+    cy.get('#frmMovimentos_GrupoFiltrar_fieldset_legend')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', ' FILTRAR ')
+
+    //validando Tipo de movimento
+    cy.contains('mat-label', 'Tipo de movimento')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', 'Tipo de movimento')
+
+    //clicar para abrir as opções de filtro
+    cy.get('#frmMovimentos_FiltrarTipoDocumento_dropdown')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //escolher opção "Troca de operador com sobra"
+    cy.get('#mat-option-21 > .mat-option-text > .ng-star-inserted')
+        .click({force:true})
+}
+
+//pesquisar por Transferencia C.C. entrada
+export function selecionarFiltroTransferenciaCCEntrada (selector) {
+
+    //validando texto "FILTRAR"
+    cy.get('#frmMovimentos_GrupoFiltrar_fieldset_legend')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', ' FILTRAR ')
+
+    //validando Tipo de movimento
+    cy.contains('mat-label', 'Tipo de movimento')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', 'Tipo de movimento')
+
+    //clicar para abrir as opções de filtro
+    cy.get('#frmMovimentos_FiltrarTipoDocumento_dropdown')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //escolher opção "Transferencia C.C. entrada"
+    cy.get('#mat-option-22 > .mat-option-text > .ng-star-inserted')
+        .click({force:true})
+}
+
+//pesquisar por Transferencia C.C. saída
+export function selecionarFiltroTransferenciaCCSaida (selector) {
+
+    //validando texto "FILTRAR"
+    cy.get('#frmMovimentos_GrupoFiltrar_fieldset_legend')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', ' FILTRAR ')
+
+    //validando Tipo de movimento
+    cy.contains('mat-label', 'Tipo de movimento')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', 'Tipo de movimento')
+
+    //clicar para abrir as opções de filtro
+    cy.get('#frmMovimentos_FiltrarTipoDocumento_dropdown')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //escolher opção "Transferencia C.C. saída"
+    cy.get('#mat-option-23 > .mat-option-text > .ng-star-inserted')
+        .click({force:true})
+}

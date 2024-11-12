@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina, iconeCarregamento, clicarCaixa } from '../../support/para_todos';
 import { clicarCaixaFechado, clicarAbrirCaixa, modalApuracaoSistema, clicarConcluirApuracao, escolherFaltaMotivoDiferenca,
-         clicarAutenticarResponsavel, autenticarResponsavelAbrirCaixa, clicarBotaoFinalizarAbertura, messCaixaFechadoSucesso,
+         clicarAutenticarResponsavel, autenticarResponsavelAbrirCaixa, clicarBotaoFinalizarAbertura, messCaixaAbertoSucesso,
          messImpressaoSucesso, valorAbrirCaixa } from '../../support/entrar_caixa/para_entrar_caixa';
 
 
@@ -35,7 +35,7 @@ describe('Entrando no caixa', () => {
 
             messImpressaoSucesso()
 
-            messCaixaFechadoSucesso()
+            messCaixaAbertoSucesso()
         })
     })
 
@@ -85,15 +85,17 @@ describe('Entrando no caixa', () => {
 
             iconeCarregamento()
 
+            cy.wait(2000)
+
             messImpressaoSucesso()
 
-            messCaixaFechadoSucesso()
+            messCaixaAbertoSucesso()
         })
     })
 
     context('Entrando no caixa com tudo aberto', () => {
 
-        it.only('Entrando no caixa com tudo aberto', () => {
+        it.skip('Entrando no caixa com tudo aberto', () => {
 
             titulopagina()
 
@@ -110,6 +112,36 @@ describe('Entrando no caixa', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('contain.text', 'Bloquear caixa') 
+        })
+    })
+
+    context('Entrando no caixa - apenas fazer a abertura do caixa', () => {
+
+        it.skip('Entrando no caixa - apenas fazer a abertura do caixa', () => {
+
+            titulopagina()
+
+            cy.login()
+            
+            clicarCaixa()
+
+            cy.wait(6000)
+
+            iconeCarregamento()
+
+            clicarAbrirCaixa()
+
+            cy.wait(3000)
+
+            valorAbrirCaixa()
+
+            iconeCarregamento()
+
+            cy.wait(2000)
+
+            messImpressaoSucesso()
+
+            messCaixaAbertoSucesso()
         })
     })
 })

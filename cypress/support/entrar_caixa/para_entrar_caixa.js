@@ -1072,8 +1072,8 @@ export function messImpressaoSucesso (selector) {
         .and('contain', 'Impressão realizada com sucesso!')
 }
 
-//mensagem de aviso após autenticar responsável "O caixa foi fechado com sucesso!"
-export function messCaixaFechadoSucesso (selector) {
+//mensagem de aviso após autenticar responsável "O caixa foi aberto com sucesso!"
+export function messCaixaAbertoSucesso (selector) {
 
     //card 
     cy.get('.sbm-user-notifier-dialog > :nth-child(2)')
