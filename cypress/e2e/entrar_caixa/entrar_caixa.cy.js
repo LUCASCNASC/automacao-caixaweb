@@ -2,7 +2,7 @@
 import { titulopagina, iconeCarregamento, clicarCaixa } from '../../support/para_todos';
 import { clicarCaixaFechado, clicarAbrirCaixa, modalApuracaoSistema, clicarConcluirApuracao, escolherFaltaMotivoDiferenca,
          clicarAutenticarResponsavel, autenticarResponsavelAbrirCaixa, clicarBotaoFinalizarAbertura, messCaixaAbertoSucesso,
-         messImpressaoSucesso, valorAbrirCaixa } from '../../support/entrar_caixa/para_entrar_caixa';
+         messImpressaoSucesso, valorAbrirCaixa, messCaixaFechadoSucesso } from '../../support/entrar_caixa/para_entrar_caixa';
 
 
 describe('Entrando no caixa', () => {

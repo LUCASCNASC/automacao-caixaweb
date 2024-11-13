@@ -1087,6 +1087,21 @@ export function messCaixaAbertoSucesso (selector) {
         .and('contain', 'O caixa foi aberto com sucesso!')
 }
 
+//mensagem de aviso após autenticar responsável "O caixa foi aberto com sucesso!"
+export function messCaixaFechadoSucesso (selector) {
+
+    //card 
+    cy.get('[data-layer="Padding"]')
+        .should('exist')
+        .and('be.visible')
+
+    //mensagem
+    cy.get('[data-top="596"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'O caixa foi fechado com sucesso!')
+}
+
 //Abrir caixa passando Valor e Observações
 export function valorAbrirCaixa (selector) {
 

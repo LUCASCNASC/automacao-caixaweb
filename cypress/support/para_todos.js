@@ -30,7 +30,7 @@ export function clicarCaixa (selector) {
         .click()
 }
 
-//validando e clicando no ícone do menu lateral
+//validando e clicando no ícone do menu lateral, além de validar Buscar no menu
 export function clicarIconeMenuLateral (selector) {
 
     //validando e clicando no menu lateral
@@ -39,6 +39,27 @@ export function clicarIconeMenuLateral (selector) {
         .and('be.visible')
         .and('not.be.disabled')
 
+    //clicando no menu
     cy.contains('mat-icon', 'menu')
-        .click()
+        .click({force:true})
+
+    cy.wait(200)
+
+    //validando ícone lupa
+    cy.get('#menu-generate-caixa_menu_data_search > .mat-list-item-content > .mat-icon')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //validando informativo dentro do campo "Buscar no menu..."
+    cy.contains('p.mat-line', 'Buscar no menu...')
+        .should('exist')
+        .and('be.visible')
+
+    //validando campo "Buscar no menu"
+    cy.get('#menu-generate-caixa_menu_data_search > .mat-list-item-content > .mat-list-text > .mat-line')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.value', '')
 }
