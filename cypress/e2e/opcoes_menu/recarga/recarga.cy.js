@@ -1,14 +1,14 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarRecarga, janelaRecarga } from '../../../support/para_opcoes_menu/para_recarga.js';
 
 
 describe('Entrando no Recebimento de pedidos', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
+        cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 

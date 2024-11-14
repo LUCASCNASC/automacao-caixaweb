@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/para_todos';
+import { tituloCaixaPagina } from '../../support/para_todos';
 import { validarImagemInicial, campoUsuarioVazio, prencherCampoUsuario, campoSenhaVazio, prencherCampoSenha, clicarBotaoLogin,
          botaoEsqueciMinhaSenha, iconeAposLogar, botaoLoginDesabilitado, acessoNegadoOutraConexao} from '../../support/logins/para_logins';
 
@@ -7,15 +7,14 @@ import { validarImagemInicial, campoUsuarioVazio, prencherCampoUsuario, campoSen
 describe('Logins', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/')
+        cy.clearAllSessionStorage()
+        tituloCaixaPagina()
     })
 
     context('Usuário normal', () => {
 
         it('Login - caminho feliz', () => {
-
-            titulopagina()
 
             validarImagemInicial()
 

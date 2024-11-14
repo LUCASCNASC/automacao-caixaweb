@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarFechamentoCaixa, janelaFechamentoCaixa } from '../../../support/para_opcoes_menu/para_fechamento_caixa.js';
 import { modalApuracaoSistema } from '../../../support/entrar_caixa/para_entrar_caixa.js';
 
@@ -7,9 +7,9 @@ import { modalApuracaoSistema } from '../../../support/entrar_caixa/para_entrar_
 describe('Entrando no Recebimento de pedidos', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
+        cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 

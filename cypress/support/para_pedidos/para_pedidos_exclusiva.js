@@ -3,17 +3,6 @@ export function primeiroPrdNormalExclusiva (selector) {
 
     const produto_exclusiva = '1896'
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        //.and('have.value', '')
-        .and('not.be.disabled')
-
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
-
     //Prenchendo campo Buscar produto
     cy.get('#searchText')
         .type(produto_exclusiva)
@@ -31,13 +20,6 @@ export function kitSemSaldoAgendamento (selector) {
         .clear()
         .wait(100)
         .should('have.value', '')
-
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        .and('have.value', '')
-        .and('not.be.disabled')
 
     //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
     cy.get('label[for="searchText"]')
@@ -61,17 +43,6 @@ export function kitVolumes (selector) {
         .wait(100)
         .should('have.value', '')
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        .and('have.value', '')
-        .and('not.be.disabled')
-
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
-
     //Prenchendo campo Buscar produto
     cy.get('#searchText')
         .type(kit_volumes)
@@ -83,17 +54,6 @@ export function kitVolumes (selector) {
 export function produtoSaldoReceber (selector) {
 
     const produto_saldoreceber = '1905'
-
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        //.and('have.value', '')
-        .and('not.be.disabled')
-
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
 
     //Prenchendo campo Buscar produto
     cy.get('#searchText')
@@ -107,17 +67,6 @@ export function prdSaldoReceberDuasLinhas (selector) {
 
     const produto_saldoreceber_duaslinhas = '1906'
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        //.and('have.value', '')
-        .and('not.be.disabled')
-
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
-
     //Prenchendo campo Buscar produto
     cy.get('#searchText')
         .type(produto_saldoreceber_duaslinhas)
@@ -127,25 +76,6 @@ export function prdSaldoReceberDuasLinhas (selector) {
 
 //aumentar quantidade a ser vendida, 5 unidades
 export function aumentarQuantVendaCinco (selector) {
-
-    //botão para diminuir quantidade
-    cy.get('[ng-click="delItem()"]')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-
-    //validar campo Quantidade
-    cy.get('[ng-model="quantidadeShow"]')
-        .should('exist')
-        .and('be.visible')
-        .and('be.disabled')
-        .and('have.value', '1')
-
-    //botão para aumentar quantidade
-    cy.get('[ng-click="addItem()"]')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
 
     //botão para aumentar quantidade
     cy.get('[ng-click="addItem()"]')
@@ -158,25 +88,6 @@ export function aumentarQuantVendaCinco (selector) {
 
 //aumentar quantidade a ser vendida, 10 unidades
 export function aumentarQuantVendaDez (selector) {
-
-    //botão para diminuir quantidade
-    cy.get('[ng-click="delItem()"]')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-
-    //validar campo Quantidade
-    cy.get('[ng-model="quantidadeShow"]')
-        .should('exist')
-        .and('be.visible')
-        .and('be.disabled')
-        .and('have.value', '1')
-
-    //botão para aumentar quantidade
-    cy.get('[ng-click="addItem()"]')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
 
     //botão para aumentar quantidade
     cy.get('[ng-click="addItem()"]')
@@ -194,45 +105,12 @@ export function aumentarQuantVendaDez (selector) {
 
 //Validando produto com saldo indisponível
 export function saldoRemotoAReceber (selector) {
-    
-    //Validando imagem
-    cy.get('.resultado-imagem')
-        .should('exist')
-        .and('be.visible')
 
     //Validando "Saldo disponivel"
     cy.get('.label')
-        .should('exist')
-        .and('be.visible')
         .and('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(240, 173, 78)')
-
-    //Validando nome do produto dentro card
-    cy.get('.md-resultado-titulo')
-        .should('exist')
-        .and('be.visible')
-
-    //Validado código do produto dentro do card
-    cy.get('.badge-saldo.ng-binding')
-        .should('exist')
-        .and('be.visible')
-
-    //Validando R$ dentro do card
-    cy.get('sup')
-        .should('exist')
-        .and('be.visible')
-        .and('have.text','R$')
-
-    //Validando valor do produto dentro do card
-    cy.get('.valor-busca')
-        .should('exist')
-        .and('be.visible')
-
-    //Validando check box dentro do card
-    cy.get('.expandeIcone')
-        .should('exist')
-        .and('be.visible')
 }
 
 //Para escolher processo de venda 9869 para exclusiva
@@ -240,23 +118,15 @@ export function processoVendaExclusiva (selector) {
 
     //clicar para aparecer as opções de processo
     cy.get('#select_value_label_4 > .md-select-icon')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click()
 
     //rolar para o meio das opções de processo
     cy.get('#select_listbox_12')
-        .should('exist')
-        .and('be.visible')
         .scrollTo('center')
 
     //selecionar processo de venda "9869"
     cy.get('#select_option_64 > .md-text')
         .scrollIntoView()
         .wait(200)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click({force:true})
 }

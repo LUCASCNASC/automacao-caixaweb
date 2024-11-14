@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/para_todos';
+import { tituloCaixaPagina } from '../../support/para_todos';
 import { validarImagemInicial, campoUsuarioVazio, prencherCampoUsuario, campoSenhaVazio, prencherCampoSenha, clicarBotaoLogin,
          botaoEsqueciMinhaSenha, iconeAposLogar, botaoLoginDesabilitado, usuInexistentePrencher, modalLoginAcessoNegado, senhaInvalidaPreencher } from '../../support/logins/para_logins';
 
@@ -8,14 +8,13 @@ describe('Logins', () => {
 
     beforeEach(() => {
         cy.visitCaixaWeb('/');
-        cy.clearAllSessionStorage();
+        cy.clearAllSessionStorage()
+        tituloCaixaPagina()
     })
 
     context('Usuário normal', () => {
 
         it('Login - caminho feliz', () => {
-
-            titulopagina()
 
             validarImagemInicial()
 
@@ -43,8 +42,6 @@ describe('Logins', () => {
 
         it('Login - preencher campo usuário com usuário inexistente e senha válida (não deve entrar)', () => {
 
-            titulopagina()
-
             validarImagemInicial()
 
             botaoLoginDesabilitado()
@@ -68,8 +65,6 @@ describe('Logins', () => {
         })
 
         it('Login - preencher campo usuário com usuário válido e senha inválida (não deve entrar)', () => {
-
-            titulopagina()
 
             validarImagemInicial()
 
@@ -95,8 +90,6 @@ describe('Logins', () => {
 
         it('Login - preencher campo usuário com usuário válido e deixar senha em branco (não deve entrar)', () => {
 
-            titulopagina()
-
             validarImagemInicial()
 
             botaoLoginDesabilitado()
@@ -117,8 +110,6 @@ describe('Logins', () => {
 
         it('Login - preencher campo senha com senha válida e deixar usuário em branco (não deve entrar)', () => {
 
-            titulopagina()
-
             validarImagemInicial()
 
             botaoLoginDesabilitado()
@@ -138,8 +129,6 @@ describe('Logins', () => {
         })
 
         it('Login - não preencher campos Usuário e Senha (não deve entrar)', () => {
-
-            titulopagina()
 
             validarImagemInicial()
 

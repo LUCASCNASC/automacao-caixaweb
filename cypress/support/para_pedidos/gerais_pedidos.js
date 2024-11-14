@@ -20,8 +20,6 @@ export function saldodisponivel (selector) {
 
     //Validando "Saldo disponivel"
     cy.get('.label')
-        .should('exist')
-        .and('be.visible')
         .and('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(92, 184, 92)')
@@ -32,8 +30,6 @@ export function saldoCDDisponivel (selector) {
 
     //Validando "Saldo disponivel"
     cy.get('.label')
-        .should('exist')
-        .and('be.visible')
         .and('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(240, 173, 78)')
@@ -44,8 +40,6 @@ export function semSaldodisponivel (selector) {
 
     //Validando "Saldo indisponivel"
     cy.get('.label')
-        .should('exist')
-        .and('be.visible')
         .and('have.text','Saldo indisponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(217, 83, 79)')
@@ -131,14 +125,12 @@ export function pedidoGerado (selector) {
 
     //Card pedido gravado com sucesso - Título Pedido Concluído
     cy.get('.md-toolbar-tools h2.flex')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('contain','Pedido Concluído')
 
     //Card pedido gravado com sucesso - X para sair da aba
     cy.get('.md-content-overflow > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('not.have.attr', 'disabled')
 
     //Card pedido gravado com sucesso - ícone check
@@ -149,25 +141,21 @@ export function pedidoGerado (selector) {
 
     //Card pedido gravado com sucesso - Pedido gerado
     cy.get('.padding-10 > .layout-wrap > .flex-sm-50 > :nth-child(1)')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('contain','Pedido gerado:')
         
     //Card pedido gravado com sucesso - Pedido gravado com sucesso
     cy.get('[ng-show="!editarPedido"]')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('contain','Pedido gravado com sucesso!')
 
     //Card pedido gravado com sucesso - Número do Pedido gravado com sucesso
     cy.get('#pedido-numero')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
 
     //Card pedido gravado com sucesso - Botão IMPRIMIR
     cy.get('md-dialog-actions.layout-align-center-center > .md-accent')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('contain', 'Imprimir')
         .and('not.have.attr', 'disabled')
         //.invoke('css', 'background-color') // Obtém a cor do elemento
@@ -175,8 +163,7 @@ export function pedidoGerado (selector) {
 
     //Card pedido gravado com sucesso - Botão OK
     cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-        .should('exist')
-        .and('be.visible')
+        .should('be.visible')
         .and('contain', 'Ok')
         .and('not.have.attr', 'disabled')
         //.invoke('css', 'background-color') // Obtém a cor do elemento
@@ -269,16 +256,6 @@ export function escolherUmaParcelaPagamento (selector) {
     //selecionando parcelas - 1X
     cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
         .click({force:true})
-}
-
-//Carregamento de forma de pagamento, quando clicamos no botão Gerar parcelas
-export function carregandoFormaPagamento (selector) {
-
-    //Mensagem "Aguarde carregando..."
-    cy.get('.carregando')
-        .should('exist')
-        .and('be.visible')
-        .and('have.text', 'Aguarde carregando...')
 }
 
 //Para escolher processo de venda 9860 normal

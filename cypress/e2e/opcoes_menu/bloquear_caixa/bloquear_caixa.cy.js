@@ -1,14 +1,14 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarBloquearCaixa, modalTelaBloqueio, confirmarBloqueioCaixa } from '../../../support/para_opcoes_menu/para_bloquear_caixa';
 
 
 describe('Entrando no Bloquear caixa', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
+        cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 

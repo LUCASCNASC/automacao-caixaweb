@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarMovimentos, janelaMovimentos, selecionarFiltroAbertura, clicarPesquisarTipoMovimento, selecionarFiltroAberturaFalta, 
          selecionarFiltroAberturaSobra, selecionarFiltroFechamento, selecionarFiltroFechamentoSobra, selecionarFiltroFechamentoFalta, 
          selecionarFiltroPagamentoDiverso, selecionarFiltroRecebimentoDiverso, selecionarFiltroRecargaCelular, selecionarFiltroRecebimentoPedido,
@@ -12,7 +12,7 @@ describe('Entrando no Recebimento de pedidos', () => {
     beforeEach(() => {
         cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
         clicarCaixa()
         cy.wait(6000)

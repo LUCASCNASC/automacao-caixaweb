@@ -1,4 +1,4 @@
-import { titulopagina, iconeCarregamento, clicarCaixa, clicarIconeMenuLateral } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa, clicarIconeMenuLateral } from '../../../support/para_todos';
 import { clicarOpcaoMenuGestor, clicarGestorTerminaisCaixa, janelaGestorTerminaisCaixa } from '../../../support/para_opcoes_menu/menu_lateral/para_pasta_gestor';
 
 describe('No menu de opções - Clicar no Gestor', () => {
@@ -6,7 +6,7 @@ describe('No menu de opções - Clicar no Gestor', () => {
     beforeEach(() => {
         cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 

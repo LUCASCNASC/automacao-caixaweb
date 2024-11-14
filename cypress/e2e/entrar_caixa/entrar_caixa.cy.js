@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../support/para_todos';
 import { clicarCaixaFechado, clicarAbrirCaixa, modalApuracaoSistema, clicarConcluirApuracao, escolherFaltaMotivoDiferenca,
          clicarAutenticarResponsavel, autenticarResponsavelAbrirCaixa, clicarBotaoFinalizarAbertura, messCaixaAbertoSucesso,
          messImpressaoSucesso, valorAbrirCaixa, messCaixaFechadoSucesso } from '../../support/entrar_caixa/para_entrar_caixa';
@@ -10,7 +10,7 @@ describe('Entrando no caixa', () => {
     beforeEach(() => {
         cy.visitCaixaWeb();
         cy.clearAllSessionStorage();
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 
@@ -39,7 +39,7 @@ describe('Entrando no caixa', () => {
 
     context('Entrando no caixa - fechado - todo o processo, abrir e passar o valor', () => {
 
-        it.skip('Abrindo caixa com diferença na apuração do sistema - Motivo: FALTA', () => {
+        it('Abrindo caixa com diferença na apuração do sistema - Motivo: FALTA', () => {
             
             clicarCaixa()
 
@@ -89,7 +89,7 @@ describe('Entrando no caixa', () => {
 
     context('Entrando no caixa com tudo aberto', () => {
 
-        it.skip('Entrando no caixa com tudo aberto', () => {
+        it('Entrando no caixa com tudo aberto', () => {
             
             clicarCaixa()
 
@@ -107,7 +107,7 @@ describe('Entrando no caixa', () => {
 
     context('Entrando no caixa - apenas fazer a abertura do caixa', () => {
 
-        it.only('Entrando no caixa - apenas fazer a abertura do caixa', () => {
+        it('Entrando no caixa - apenas fazer a abertura do caixa', () => {
             
             clicarCaixa()
 

@@ -1,14 +1,14 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarSuprimento, janelaSuprimento, preencherSuprimentoSaldos, preencherSuprimentoEntradaValores } from '../../../support/para_opcoes_menu/para_suprimento';
 
 
 describe('Entrando no Suprimento', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
+        cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 

@@ -1,14 +1,14 @@
 //Importando funções 
-import { titulopagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
 import { clicarTrocaOperador, janelaTrocaOperador } from '../../../support/para_opcoes_menu/para_troca_operador';
 import { modalApuracaoSistema } from '../../../support/entrar_caixa/para_entrar_caixa';
 
 describe('Entrando na Troca de operador', () => {
 
     beforeEach(() => {
-        cy.visitCaixaWeb('/');
+        cy.visitCaixaWeb('/')
         cy.clearAllSessionStorage()
-        titulopagina()
+        tituloCaixaPagina()
         cy.loginCaixaWeb()
     })
 
