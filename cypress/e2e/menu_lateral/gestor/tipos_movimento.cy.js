@@ -4,17 +4,15 @@ import { clicarOpcaoMenuGestor, clicarGestorTiposMovimento, janelaGestorTiposMov
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Tipos de movimento', () => {
 
         it('Entrar em Tipos de movimento', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

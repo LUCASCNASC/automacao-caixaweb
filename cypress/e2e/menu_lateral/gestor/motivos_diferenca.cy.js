@@ -4,17 +4,15 @@ import { clicarOpcaoMenuGestor, clicarGestorMotivosDiferenca, janelaGestorMotivo
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Motivos de diferença', () => {
 
         it('Entrar em Motivos de diferença', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

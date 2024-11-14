@@ -8,17 +8,15 @@ import { clicarCaixaFechado, clicarAbrirCaixa, modalApuracaoSistema, clicarConcl
 describe('Entrando no caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb();
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando no caixa - aberto - apenas passar o valor', () => {
         it.skip('Entrando no caixa fechado - passando valor para abrir', () => {
 
-            titulopagina()
-
-            cy.login()
-            
             clicarCaixa()
 
             cy.wait(6000)
@@ -42,10 +40,6 @@ describe('Entrando no caixa', () => {
     context('Entrando no caixa - fechado - todo o processo, abrir e passar o valor', () => {
 
         it.skip('Abrindo caixa com diferença na apuração do sistema - Motivo: FALTA', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 
@@ -96,10 +90,6 @@ describe('Entrando no caixa', () => {
     context('Entrando no caixa com tudo aberto', () => {
 
         it.skip('Entrando no caixa com tudo aberto', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 
@@ -117,11 +107,7 @@ describe('Entrando no caixa', () => {
 
     context('Entrando no caixa - apenas fazer a abertura do caixa', () => {
 
-        it.skip('Entrando no caixa - apenas fazer a abertura do caixa', () => {
-
-            titulopagina()
-
-            cy.login()
+        it.only('Entrando no caixa - apenas fazer a abertura do caixa', () => {
             
             clicarCaixa()
 

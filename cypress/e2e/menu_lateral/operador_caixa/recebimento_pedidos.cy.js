@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorRecebimentoPedido, janelaOperad
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Recebimento de pedidos', () => {
 
         it('Entrar em Recebimento de pedidos', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

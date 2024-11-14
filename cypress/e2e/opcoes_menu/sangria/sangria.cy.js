@@ -6,17 +6,15 @@ import { clicarSangria, janelaSangria, preencherSangriaSaldos, preencherSangriaR
 describe('Entrando na Sangria', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando na Sangria', () => {
 
         it('Entrando na Sangria', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

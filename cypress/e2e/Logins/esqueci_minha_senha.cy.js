@@ -6,7 +6,7 @@ import { validarImagemInicial, clicarEsqueciMinhaSenha, campoEmailVazio, prenche
 describe('Logins', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
     })
 

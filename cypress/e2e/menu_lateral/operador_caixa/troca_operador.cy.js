@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorTrocaOperador, janelaOperadorTr
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Troca de operador', () => {
 
         it('Entrar em Troca de operador', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

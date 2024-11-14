@@ -4,17 +4,15 @@ import { clicarOpcaoMenuGestor, clicarGestorEntradaSaidaCaixa, janelaGestorEntra
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Terminais de caixa', () => {
 
         it('Entrar em Terminais de caixa', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

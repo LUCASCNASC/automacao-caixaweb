@@ -24,7 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('login', (username, password) => {
+Cypress.Commands.add('loginCaixaWeb', (username, password) => {
   
     // Visite a página de login
     cy.visit('http://10.7.0.87/#/login');
@@ -44,3 +44,37 @@ Cypress.Commands.add('login', (username, password) => {
       .should('exist') //Validando se realmente fez o login
       .and('be.visible')
   })
+
+Cypress.Commands.add('loginPedidoWeb', (username, password) => {
+
+  // Visite a página de login
+  cy.visit('http://10.7.0.42:2701/');
+
+  // Preencha o campo de nome de usuário
+  cy.get('#txtusername').type('sabium.automacao');
+
+  // Preencha o campo de senha
+  cy.get('#txtpassword').type('123.automacao');
+
+  // Submeta o formulário de login
+  cy.get('.test_btnSalvarCliente').click();
+
+  cy.get('.ng-scope > .ng-binding')
+    .should('contain','Entrando no sistema') //Validando mensagem "Entrando no sistema" logo após clicarmos no botão Entrar
+  
+  cy.wait(6500)
+
+  cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
+    .should('contain','Cliente') //Validando se realmente fez o login
+
+});
+
+  // Comando personalizado para visitar a página Caixa Web
+Cypress.Commands.add('visitCaixaWeb', () => {
+  cy.visit('http://10.7.0.87/#/login');
+});
+
+// Comando personalizado para visitar a página Pedido Web
+Cypress.Commands.add('visitPedidoWeb', () => {
+  cy.visit('http://10.7.0.42:2701/');
+});

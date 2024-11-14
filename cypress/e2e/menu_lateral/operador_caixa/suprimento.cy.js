@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorSuprimento, janelaOperadorSupri
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Suprimento', () => {
 
         it('Entrar em Suprimento', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

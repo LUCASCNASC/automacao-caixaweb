@@ -7,7 +7,7 @@ import { validarImagemInicial, campoUsuarioVazio, prencherCampoUsuario, campoSen
 describe('Logins', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
     })
 

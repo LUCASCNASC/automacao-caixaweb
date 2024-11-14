@@ -4,17 +4,15 @@ import { clicarOpcaoMenuGestor, clicarGestorOperadorCaixa, janelaGestorOperadorC
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Operador de caixa', () => {
 
         it.only('Entrar em Operador de caixa', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

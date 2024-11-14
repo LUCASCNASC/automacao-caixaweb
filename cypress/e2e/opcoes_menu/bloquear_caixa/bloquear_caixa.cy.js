@@ -6,17 +6,15 @@ import { clicarBloquearCaixa, modalTelaBloqueio, confirmarBloqueioCaixa } from '
 describe('Entrando no Bloquear caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando no Bloquear caixa', () => {
 
         it('Entrando no Bloquear caixa', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorRecebimentoTitulos, janelaOpera
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Recebimento de títulos', () => {
 
         it('Entrar em Recebimento de títulos', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

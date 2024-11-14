@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorFechamentoCaixa, janelaOperador
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Fechamento do caixa', () => {
 
         it('Entrar em Fechamento do caixa', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

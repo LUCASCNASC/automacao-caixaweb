@@ -4,17 +4,15 @@ import { clicarOpcaoParametrosNegocio, clicarParametroConfigValores, janelaParam
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Recarga', () => {
 
         it('Entrar em Recarga', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

@@ -7,17 +7,15 @@ import { clicarRecebimentoPedidos, janelaRecebimentoPedidos, paginaRecebimentoPe
 describe('Entrando no Recebimento de pedidos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando no Recebimento de pedidos', () => {
 
         it('Entrando no Recebimento de pedidos', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

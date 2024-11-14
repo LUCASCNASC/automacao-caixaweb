@@ -6,18 +6,16 @@ import { clicarSuprimento, janelaSuprimento, preencherSuprimentoSaldos, preenche
 describe('Entrando no Suprimento', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando no Suprimento', () => {
 
         //necessário validarmos terminal sangria para conseguir autenticar
-        it.only('Entrando no Suprimento', () => {
-
-            titulopagina()
-
-            cy.login()
+        it('Entrando no Suprimento', () => {
             
             clicarCaixa()
 

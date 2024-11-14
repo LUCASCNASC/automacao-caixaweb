@@ -4,18 +4,16 @@ import { clicarOpcaoMenuGestor, clicarGestorConcentradoresTEF, janelaGestorConce
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Operador de caixa', () => {
 
         it('Entrar em Operador de caixa', () => {
-
-            titulopagina()
-
-            cy.login()
-            
+               
             clicarCaixa()
 
             cy.wait(6000)

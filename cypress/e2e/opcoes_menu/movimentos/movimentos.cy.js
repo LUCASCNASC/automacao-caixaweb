@@ -10,10 +10,10 @@ import { clicarMovimentos, janelaMovimentos, selecionarFiltroAbertura, clicarPes
 describe('Entrando no Recebimento de pedidos', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/')
+        cy.clearAllSessionStorage()
         titulopagina()
-        cy.login()
+        cy.loginCaixaWeb()
         clicarCaixa()
         cy.wait(6000)
         iconeCarregamento()

@@ -4,17 +4,15 @@ import { clicarOpcaoOperadorCaixa, clicarOperadorBloquearCaixa, janelaOperadorBl
 describe('No menu de opções - Clicar no Operador de Caixa', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Bloquear caixa', () => {
 
         it('Entrar em Bloquear caixa', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

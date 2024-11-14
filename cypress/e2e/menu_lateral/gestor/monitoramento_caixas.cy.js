@@ -4,17 +4,15 @@ import { clicarOpcaoMenuGestor, clicarGestorMonitoramentoCaixas, janelaGestorMon
 describe('No menu de opções - Clicar no Gestor', () => {
 
     beforeEach(() => {
-        cy.visit('/');
+        cy.visitCaixaWeb('/');
         cy.clearAllSessionStorage();
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrar em Monitoramento do caixas', () => {
 
         it('Entrar em Monitoramento do caixas', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 

@@ -6,18 +6,16 @@ import { modalApuracaoSistema } from '../../../support/entrar_caixa/para_entrar_
 describe('Entrando na Troca de operador', () => {
 
     beforeEach(() => {
-        cy.visit('/');
-        cy.clearAllSessionStorage();
+        cy.visitCaixaWeb('/');
+        cy.clearAllSessionStorage()
+        titulopagina()
+        cy.loginCaixaWeb()
     })
 
     context('Entrando na Troca de operador', () => {
 
         //necessário terminar
         it('Entrando na Troca de operador', () => {
-
-            titulopagina()
-
-            cy.login()
             
             clicarCaixa()
 
