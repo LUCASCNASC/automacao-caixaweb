@@ -11,6 +11,7 @@ module.exports = defineConfig({
     screenshotsFolder: 'cypress/screenshots', // Diretório onde as screenshots serão salvas
     video: true, //Gravar vídeo do teste
     videosFolder: 'cypress/videos', // Diretório onde os vídeos serão salvos
+    //chromeWebSecurity: false,
     //experimentalSessionAndOrigin: true, // para conseguir utilizar outras url dentro do mesmo teste
   },
 });

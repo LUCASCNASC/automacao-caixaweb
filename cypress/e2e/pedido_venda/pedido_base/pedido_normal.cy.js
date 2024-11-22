@@ -48,7 +48,7 @@ describe('Gerar pedido normal', () => {
             //CAIXA WEB
 
             cy.origin('http://10.7.0.87/#/login', () => {
-                cy.visit('/')
+                //cy.visit('/')
               });
 
             //
@@ -57,7 +57,7 @@ describe('Gerar pedido normal', () => {
             //cy.visit('http://10.7.0.87/#/login')
             //cy.visitCaixaWeb()
 
-            //cy.loginCaixaWeb()
+            cy.loginCaixaWeb()
 
         })
 

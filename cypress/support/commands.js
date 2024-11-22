@@ -69,7 +69,7 @@ Cypress.Commands.add('loginPedidoWeb', (username, password) => {
 
 });
 
-  // Comando personalizado para visitar a página Caixa Web
+// Comando personalizado para visitar a página Caixa Web
 Cypress.Commands.add('visitCaixaWeb', () => {
   cy.visit('http://10.7.0.87/#/login');
 });
