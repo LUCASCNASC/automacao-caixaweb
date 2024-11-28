@@ -1,4 +1,5 @@
 import { tituloPaginaPedidoWeb } from '../../../support/para_pedidos/para_todos_pedidos';
+import { tituloCaixaPagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
          avancarParaTransportadora, avancarParcelasEntrega, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto,
@@ -51,12 +52,15 @@ describe('Gerar pedido normal', () => {
                 //cy.visit('/')
               });
 
+            cy.puppeteer()
+
             //
             cy.wait(1000)
 
             //cy.visit('http://10.7.0.87/#/login')
             //cy.visitCaixaWeb()
 
+            tituloCaixaPagina()
             cy.loginCaixaWeb()
 
         })
