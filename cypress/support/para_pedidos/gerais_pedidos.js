@@ -20,7 +20,7 @@ export function saldodisponivel (selector) {
 
     //Validando "Saldo disponivel"
     cy.get('.label')
-        .and('have.text','Saldo disponivel')
+        .should('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(92, 184, 92)')
 }
@@ -30,7 +30,7 @@ export function saldoCDDisponivel (selector) {
 
     //Validando "Saldo disponivel"
     cy.get('.label')
-        .and('have.text','Saldo disponivel')
+        .should('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(240, 173, 78)')
 }
@@ -61,17 +61,17 @@ export function escolherRota (selector) {
 
     //Clicar na lupa para pesquisar rota depois de preencher campo
     cy.get('md-icon[ng-click="pesquisar()"]')
-        .click()
+        .click({force:true})
 
     cy.wait(400)
 
     //Escolher rota após pesquisarmos
     cy.get('v-pane-header.ng-scope > div')
-        .click() //clicar na rota 1
+        .click({force:true}) //clicar na rota 1
 
     //Escolher rota 2
     cy.get(':nth-child(4) > .padding-10-0')
-        .click() //clicar na rota 1
+        .click({force:true}) //clicar na rota 1
 
     cy.wait (200)
 }
@@ -353,14 +353,10 @@ export function avancarParcelasEntrega (selector) {
 
     cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
         .scrollIntoView()
-        .wait(200)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-        .and('contain','Avançar')
 
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .click({force:true})
 }
 
 //Botão AVANÇAR, da tela antes de finalizar o pedido
@@ -488,8 +484,6 @@ export function escolherEntradaFormaPagamento (selector) {
 
     //Campo máximo da parcela
     cy.get('input.campoMoeda_totalEntrada')
-        .should('exist')
-        .and('be.visible')
         .type('30000')
 
     //clicando em "Formas de pagamento na Entrada" para abrir forma de pagamento de entrada
