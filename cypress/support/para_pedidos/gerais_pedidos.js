@@ -103,12 +103,16 @@ export function escolherClientePedido (selector) {
 
     //clicar na lupa de pesquisa de clientes
     cy.get('.md-block > .ng-binding')
+        .should('exist')
+        .and('be.visible')
         .click()
 
     cy.wait(1500)
 
     //após a pesquisa encontrar o cliente, vamos selecionar ele
     cy.get('.md-3-line > div.md-button > .md-no-style')
+        .should('exist')
+        .and('be.visible')
         .click()
 }
 
