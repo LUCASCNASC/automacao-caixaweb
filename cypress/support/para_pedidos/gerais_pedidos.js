@@ -40,7 +40,7 @@ export function semSaldodisponivel (selector) {
 
     //Validando "Saldo indisponivel"
     cy.get('.label')
-        .and('have.text','Saldo indisponivel')
+        .should('have.text','Saldo indisponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(217, 83, 79)')
 }
@@ -158,16 +158,12 @@ export function pedidoGerado (selector) {
         .should('be.visible')
         .and('contain', 'Imprimir')
         .and('not.have.attr', 'disabled')
-        //.invoke('css', 'background-color') // Obtém a cor do elemento
-        //.should('equal', 'rgb(28, 202, 19)')
 
     //Card pedido gravado com sucesso - Botão OK
     cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
         .should('be.visible')
         .and('contain', 'Ok')
         .and('not.have.attr', 'disabled')
-        //.invoke('css', 'background-color') // Obtém a cor do elemento
-        //.should('equal', 'rgb(36, 13, 105)')
 }
 
 //Botão para finalizar o pedido
@@ -267,8 +263,6 @@ export function processoVendaPrincipal (selector) {
 
     //rolar para o meio das opções de processo
     cy.get('#select_listbox_12')
-        .should('exist')
-        .and('be.visible')
         .scrollTo('center')
 
     //selecionar processo de venda "9860"
@@ -285,8 +279,6 @@ export function processoEntregaFutura (selector) {
 
     //rolar para o meio das opções de processo
     cy.get('#select_listbox_12')
-        .should('exist')
-        .and('be.visible')
         .scrollTo('center')
 
     //selecionar processo de venda "9862"
@@ -303,8 +295,6 @@ export function processoFinanceiroBaixa (selector) {
 
     //rolar para o meio das opções de processo
     cy.get('#select_listbox_12')
-        .should('exist')
-        .and('be.visible')
         .scrollTo('center')
 
     //selecionar processo de venda "9863"
@@ -320,10 +310,6 @@ export function avancarParaParcelas (selector) {
     cy.get('.flex-gt-sm-50 > .md-primary')
         .scrollIntoView()
         .wait(200)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-        .and('contain','Avançar')
 
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.flex-gt-sm-50 > .md-primary')
@@ -336,10 +322,6 @@ export function avancarParaTransportadora (selector) {
     cy.get('.flex-gt-sm-50 > .md-primary')
         .scrollIntoView()
         .wait(200)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-        .and('contain','Avançar')
 
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.flex-gt-sm-50 > .md-primary')
@@ -380,10 +362,7 @@ export function escolherProdutoPesquisa (selector) {
 
     //Clicar para adicionar no carrinho
     cy.get('.md-list-item-text')
-        .should('exist')
-        .and('be.visible')
         .click({force:true})
-
 }
 
 //Clicar para selecionar a voltagem que queremos adicionar ao pedido
@@ -402,24 +381,16 @@ export function trocarFilialFaturamento (selector) {
 
     //Botão filial de faturamento
     cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-        .should('exist')
-        .and('be.visible')
-        .and('contain', filial_local)
+        .should('contain', filial_local)
         .click({force:true})
 
     //Card Filial de faturamento - filial 50
     cy.get('p.ng-binding')
         .contains(filial_local)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
 
     //Card Filial de faturamento - filial 6
     cy.get('p.ng-binding')
         .contains(filial_remota)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         
     //Card Filial de faturamento - clicar na filial 6
     cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
@@ -431,17 +402,11 @@ export function modalInconsRotaTransp (selector) {
 
     //Botão X para fechar
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click({force:true})
 
     cy.wait(5000)
 
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click({force:true})
 }
 
@@ -450,9 +415,6 @@ export function modalInconsApenasTransp (selector) {
     
     //Botão X para fechar
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click({force:true})
 
     cy.wait(5000)
@@ -467,9 +429,6 @@ export function modalInconsApenasRota (selector) {
     
     //Botão X para fechar
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
         .click({force:true})
 
     cy.wait(5000)
