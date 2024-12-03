@@ -18,19 +18,12 @@ describe('Entrando no Suprimento', () => {
         it('Entrando no Suprimento', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarSuprimento()
-
             janelaSuprimento()
-
             preencherSuprimentoSaldos()
-            
             preencherSuprimentoEntradaValores()
-            
         })
     })
 })

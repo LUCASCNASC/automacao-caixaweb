@@ -4,7 +4,6 @@ import { clicarCaixaFechado, clicarAbrirCaixa, modalApuracaoSistema, clicarConcl
          clicarAutenticarResponsavel, autenticarResponsavelAbrirCaixa, clicarBotaoFinalizarAbertura, messCaixaAbertoSucesso,
          messImpressaoSucesso, valorAbrirCaixa, messCaixaFechadoSucesso } from '../../support/entrar_caixa/para_entrar_caixa';
 
-
 describe('Entrando no caixa', () => {
 
     beforeEach(() => {
@@ -18,21 +17,15 @@ describe('Entrando no caixa', () => {
         it.skip('Entrando no caixa fechado - passando valor para abrir', () => {
 
             clicarCaixa()
-
             cy.wait(6000)
 
             iconeCarregamento()
-
             clicarAbrirCaixa()
-
             cy.wait(3000)
 
             valorAbrirCaixa()
-
             iconeCarregamento()
-
             messImpressaoSucesso()
-
             messCaixaAbertoSucesso()
         })
     })
@@ -42,47 +35,30 @@ describe('Entrando no caixa', () => {
         it('Abrindo caixa com diferença na apuração do sistema - Motivo: FALTA', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
 
             iconeCarregamento()
-
             clicarCaixaFechado()
-
             iconeCarregamento()
-
             modalApuracaoSistema()
-
             clicarConcluirApuracao()
-
             escolherFaltaMotivoDiferenca()
-
             clicarAutenticarResponsavel()
-
             autenticarResponsavelAbrirCaixa()
-
             clicarBotaoFinalizarAbertura()
-
             iconeCarregamento()
-
             messImpressaoSucesso()
-
             messCaixaFechadoSucesso()
-
             cy.wait(2000)
 
             clicarAbrirCaixa()
-
             cy.wait(3000)
 
             valorAbrirCaixa()
-
             iconeCarregamento()
-
             cy.wait(2000)
 
             messImpressaoSucesso()
-
             messCaixaAbertoSucesso()
         })
     })
@@ -92,7 +68,6 @@ describe('Entrando no caixa', () => {
         it('Entrando no caixa com tudo aberto', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
 
             iconeCarregamento()
@@ -110,23 +85,17 @@ describe('Entrando no caixa', () => {
         it('Entrando no caixa - apenas fazer a abertura do caixa', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
 
             iconeCarregamento()
-
             clicarAbrirCaixa()
-
             cy.wait(3000)
 
             valorAbrirCaixa()
-
             iconeCarregamento()
-
             cy.wait(2000)
 
             messImpressaoSucesso()
-
             messCaixaAbertoSucesso()
         })
     })

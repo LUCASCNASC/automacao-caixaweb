@@ -105,3 +105,4 @@ export function produtoRemotoSemCD (selector) {
         .wait(100)
         .should('have.value', remoto__sem_saldo_CD)
 }
+

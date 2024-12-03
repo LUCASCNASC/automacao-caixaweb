@@ -15,21 +15,13 @@ describe('No menu de opções - Clicar no Gestor', () => {
         it('Entrar em Tipos de movimento', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             cy.wait(4000)
-
             clicarIconeMenuLateral()
-
             clicarOpcaoMenuGestor()
-
             clicarGestorTiposMovimento()
-
             janelaGestorTiposMovimento()
-            
         })
     })
 })

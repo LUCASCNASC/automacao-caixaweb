@@ -18,25 +18,17 @@ describe('Entrando no Recebimento de pedidos', () => {
         it('Entrando no Recebimento de pedidos', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarRecebimentoPedidos()
-
             janelaRecebimentoPedidos()
-
             iconeCarregamento()
-
             cy.wait(4500)
-
             paginaRecebimentoPedidos()
 
             //fazer botão exclusivo para campo Pedido
 
             botaoPesquisarRecebimentoPedidos()
-
             clicarBotaoMonstrarOcultarColunas()
         })
     })

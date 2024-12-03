@@ -24,6 +24,12 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// cy.origin(ENVS_URL, () => {
+//   Cypress.on('uncaught:exception', (err, runnable) => {
+//     return false
+//   })
+// })
+
 Cypress.Commands.add('loginCaixaWeb', (username, password) => {
   
     // Visite a página de login

@@ -2,7 +2,6 @@
 import { tituloCaixaPagina } from '../../support/para_todos';
 import { validarImagemInicial, clicarEsqueciMinhaSenha, campoEmailVazio, prencherCampoEmail, botaoRecuperarSenha, botaoVoltarSenha } from '../../support/logins/para_logins';
 
-
 describe('Logins', () => {
 
     beforeEach(() => {
@@ -16,19 +15,12 @@ describe('Logins', () => {
         it('Login - caminho feliz', () => {
 
             validarImagemInicial()
-
             clicarEsqueciMinhaSenha()
 
-            //MODAL ESQUECI MINHA SENHA
-
-            validarImagemInicial()
-
+            validarImagemInicial() //MODAL ESQUECI MINHA SENHA
             campoEmailVazio()
-
             prencherCampoEmail()
-
             botaoRecuperarSenha()
-
             botaoVoltarSenha()
         })
     })

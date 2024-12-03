@@ -17,13 +17,9 @@ describe('Entrando no Bloquear caixa', () => {
         it('Entrando no Bloquear caixa', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarBloquearCaixa()
-
             modalTelaBloqueio()
 
             //confirmarBloqueioCaixa()

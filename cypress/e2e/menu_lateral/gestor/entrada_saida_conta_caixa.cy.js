@@ -15,19 +15,12 @@ describe('No menu de opções - Clicar no Gestor', () => {
         it('Entrada/Saída conta caixa', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             cy.wait(4000)
-
             clicarIconeMenuLateral()
-
             clicarOpcaoMenuGestor()
-
             clicarGestorTerminaisCaixa()
-
             janelaGestorTerminaisCaixa()  
         })
     })

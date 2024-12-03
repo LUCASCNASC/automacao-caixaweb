@@ -1,7 +1,7 @@
 //Importando funções 
-import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../../support/para_todos';
+import { tituloCaixaPagina, iconeCarregamento, clicarCaixa } from '../../support/para_todos';
 import { clicarRecebimentoTitulos, janelaRecebimentoTitulos, paginaRecebimentoTitulos, botaoBuscarRecebimentoTitulos, 
-         clicarBotaoMonstrarOcultarColunas } from '../../../support/para_opcoes_menu/para_recebimento_titulos';
+         clicarBotaoMonstrarOcultarColunas } from '../../support/para_opcoes_menu/para_recebimento_titulos';
 
 
 describe('Entrando no Recebimento de pedidos', () => {
@@ -18,14 +18,23 @@ describe('Entrando no Recebimento de pedidos', () => {
         it('Entrando no Recebimento de títulos', () => {
             
             clicarCaixa()
+
             cy.wait(6000)
+
             iconeCarregamento()
+
             clicarRecebimentoTitulos()
+
             janelaRecebimentoTitulos()
+
             iconeCarregamento()
-            cy.wait(4500)
+
+            cy.wait(1000)
+
             paginaRecebimentoTitulos()
+
             botaoBuscarRecebimentoTitulos()
+
             clicarBotaoMonstrarOcultarColunas()
         })
     })

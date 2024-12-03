@@ -1,11 +1,11 @@
-import { tituloPaginaPedidoWeb } from '../../../support/para_pedidos/para_todos_pedidos';
-import { tituloCaixaPagina } from '../../../support/para_todos';
+import { tituloPaginaPedidoWeb } from '../../support/para_pedidos/para_todos_pedidos';
+import { tituloCaixaPagina } from '../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
          avancarParaTransportadora, avancarParcelasEntrega, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto,
          avancarFinal, modalInconsRotaTransp, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento,
-         escolherEntradaFormaPagamento, clicarGerarPagamento, escolherUmaParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
+         escolherEntradaFormaPagamento, clicarGerarPagamento, escolherUmaParcelaPagamento} from '../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -45,23 +45,43 @@ describe('Gerar pedido normal', () => {
             botaoFinalizarPedido()
             cy.wait(8000)
             pedidoGerado()
+            cy.wait(1000)
 
             //CAIXA WEB
 
-            cy.origin('http://10.7.0.87/#/login', () => {
-                //cy.visit('/')
+            cy.origin('http://10.7.0.87/#', () => {
+                cy.visit('/login')
+                cy.title()
+                    .should('eq', 'Sabium Lançador Web') //Validando título da página
+
+                // Preencha o campo de nome de usuário
+                cy.get('#usuario').type('lucas.camargo');
+            
+                // Preencha o campo de senha
+                cy.get('#senha').type('@Lcn1998');
+            
+                // Submeta o formulário de login
+                cy.get('#btn-login').click()
+
+                // Clicar para abrir o CAIXA
+                cy.get('#app-block-caixa').click().wait(6000)
+
+                //clicar para entrar no Recebimento de pedidos
+                cy.get('#sbm-shorcut-mnu_RecebimentoPedidos').click().wait(8000)
+
+                //selecionar primeira opção de Recebimento de pedidos
+                cy.get('[aria-rowindex="1"] > [aria-describedby="dx-col-76"]').click()
+
+                //clicar no botão "Avançar"
+                cy.get('#frmRecebimentoPedidos_BtnBaixaPedidoVenda_material_button > .mat-button-wrapper').click({force:true}).wait(9000)
+
+                
+
+
+
               });
-
-            cy.puppeteer()
-
-            //
-            cy.wait(1000)
-
-            //cy.visit('http://10.7.0.87/#/login')
-            //cy.visitCaixaWeb()
-
-            tituloCaixaPagina()
-            cy.loginCaixaWeb()
+            
+            
 
         })
 

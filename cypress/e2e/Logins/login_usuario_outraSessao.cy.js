@@ -17,26 +17,16 @@ describe('Logins', () => {
         it('Login - caminho feliz', () => {
 
             validarImagemInicial()
-
             botaoLoginDesabilitado()
-
             campoUsuarioVazio()
-
             prencherCampoUsuario()
-
             botaoLoginDesabilitado()
-
             campoSenhaVazio()
-
             prencherCampoSenha()
-
-            //validando botão
-            botaoEsqueciMinhaSenha()
-
+            botaoEsqueciMinhaSenha() //validando botão
             clicarBotaoLogin()
-
             cy.wait(1000)
-            
+        
             acessoNegadoOutraConexao()
         })
     })

@@ -18,15 +18,10 @@ describe('Entrando no Recebimento de pedidos', () => {
         it('Entrando no Recebimento de títulos', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarFechamentoCaixa()
-
             janelaFechamentoCaixa()
-
             modalApuracaoSistema()
         })
     })

@@ -15,19 +15,12 @@ describe('No menu de opções - Clicar no Gestor', () => {
         it('Entrar em Motivos de diferença', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             cy.wait(4000)
-
             clicarIconeMenuLateral()
-
             clicarOpcaoMenuGestor()
-
             clicarGestorMotivosDiferenca()
-
             janelaGestorMotivosDiferenca()
             
         })

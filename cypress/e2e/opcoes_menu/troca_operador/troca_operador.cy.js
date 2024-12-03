@@ -18,18 +18,11 @@ describe('Entrando na Troca de operador', () => {
         it('Entrando na Troca de operador', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarTrocaOperador()
-
             janelaTrocaOperador()
-
             modalApuracaoSistema
-
-           
         })
     })
 })

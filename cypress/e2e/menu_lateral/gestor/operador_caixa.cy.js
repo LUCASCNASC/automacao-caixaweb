@@ -15,21 +15,13 @@ describe('No menu de opções - Clicar no Gestor', () => {
         it.only('Entrar em Operador de caixa', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             cy.wait(4000)
-
             clicarIconeMenuLateral()
-
             clicarOpcaoMenuGestor()
-
             clicarGestorOperadorCaixa()
-
             janelaGestorOperadorCaixa()
-            
         })
     })
 })

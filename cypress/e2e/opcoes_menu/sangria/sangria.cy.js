@@ -17,20 +17,12 @@ describe('Entrando na Sangria', () => {
         it('Entrando na Sangria', () => {
             
             clicarCaixa()
-
             cy.wait(6000)
-
             iconeCarregamento()
-
             clicarSangria()
-
             janelaSangria()
-
             preencherSangriaSaldos()
-
             preencherSangriaRetiradaValores()
-
-           
         })
     })
 })
