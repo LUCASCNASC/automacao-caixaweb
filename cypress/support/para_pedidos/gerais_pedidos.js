@@ -63,7 +63,7 @@ export function escolherRota (selector) {
     cy.get('md-icon[ng-click="pesquisar()"]')
         .click({force:true})
 
-    cy.wait(400)
+    cy.wait(500)
 
     //Escolher rota após pesquisarmos
     cy.get('v-pane-header.ng-scope > div')
@@ -231,6 +231,14 @@ export function escolherFormaPagamentoPrincipal (selector) {
 
     //escolhendo forma de pagamento - 3860
     cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+        .click({force:true})
+}
+
+//escolhendo forma de pagamento cheque
+export function escolherformaPagamentoCheque (selector) {
+
+    //selecionando forma de pagamento cheque
+    cy.get(':nth-child(10) > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
         .click({force:true})
 }
 

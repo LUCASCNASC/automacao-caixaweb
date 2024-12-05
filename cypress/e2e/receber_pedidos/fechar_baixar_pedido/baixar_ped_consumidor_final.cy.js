@@ -1,13 +1,14 @@
 import { tituloPaginaPedidoWeb } from '../../../support/para_pedidos/para_todos_pedidos';
 import { tituloCaixaPagina } from '../../../support/para_todos';
+import { clienteCPFConsumidorFinalSim, clienteCNPJConsumidorFinalNao, consumidorFinalNAO } from '../../../support/para_pedidos/para_ped_consumidor_final'
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
          avancarParaTransportadora, avancarParcelasEntrega, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto,
          avancarFinal, modalInconsRotaTransp, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento,
-         escolherUmaParcelaPagamento, escolherEntradaFormaPagamento, clicarGerarPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+         escolherEntradaFormaPagamento, clicarGerarPagamento, escolherUmaParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
-describe('Baixar pedido: sem frete, com entrada + parcelamento', () => {
+describe('Baixar pedido sem entrega - consumidor', () => {
 
     beforeEach(() => {
         cy.visitPedidoWeb('/');
@@ -15,18 +16,18 @@ describe('Baixar pedido: sem frete, com entrada + parcelamento', () => {
         cy.loginPedidoWeb();
         tituloPaginaPedidoWeb()
         processoVendaPrincipal()
-        escolherClientePedido()
-        cy.wait(500)
-        produtoNormalPrimeiro()
-        saldodisponivel()
-        escolherProdutoPesquisa()
-        cy.wait(200)
     })
 
-    context('Baixar pedido: sem entrega, com entrada + parcelamento', () => {
+    context('Baixar pedido sem entrega - CPF e CNPJ', () => {
 
-        it('Baixar pedido: sem entrega, com entrada + parcelamento', () => {
+        it('Baixar pedido sem entrega - CPF (consumidor final=SIM)', () => {
 
+            clienteCPFConsumidorFinalSim()
+            cy.wait(500)
+            produtoNormalPrimeiro()
+            saldodisponivel()
+            escolherProdutoPesquisa()
+            cy.wait(200)
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
@@ -34,13 +35,11 @@ describe('Baixar pedido: sem frete, com entrada + parcelamento', () => {
             tirarEntrega()
             cy.wait(400)
             avancarParaParcelas()
-            cy.wait(5000)
-            escolherEntradaFormaPagamento()
-            clicarGerarPagamento()
+            cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(2000)
+            cy.wait(5000)
             escolherFormaPagamentoPrincipal()
-            escolherUmaParcelaPagamento()
+            escolherDuasParcelaPagamento()
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
@@ -76,32 +75,31 @@ describe('Baixar pedido: sem frete, com entrada + parcelamento', () => {
                 cy.get('.mat-tab-links > :nth-child(3)').should('exist').and('be.visible') //compra e venda
               });
         })
-    })
 
-    context('Baixar pedido: com entrega, com entrada + parcelamento', () => {
+        it('Baixar pedido sem entrega - CNPJ (consumidor final=NÃO)', () => {
 
-        it('Baixar pedido: com entrega, com entrada + parcelamento', () => {
-
+            clienteCNPJConsumidorFinalNao()
+            cy.wait(500)
+            produtoNormalPrimeiro()
+            saldodisponivel()
+            escolherProdutoPesquisa()
+            cy.wait(200)
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
             okServicosVinculados()
-            avancarParaTransportadora()
-            cy.wait(11000)
-            modalInconsRotaTransp()
-            escolherTransportadora()
-            escolherRota()
-            avancarParcelasEntrega()
-            cy.wait(6500)
-            escolherEntradaFormaPagamento()
-            clicarGerarPagamento()
+            tirarEntrega()
+            cy.wait(400)
+            avancarParaParcelas()
+            cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(2000)
+            cy.wait(5000)
             escolherFormaPagamentoPrincipal()
-            escolherUmaParcelaPagamento()
+            escolherDuasParcelaPagamento()
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
+            consumidorFinalNAO()
             botaoFinalizarPedido()
             cy.wait(8000)
             pedidoGerado()
@@ -116,20 +114,16 @@ describe('Baixar pedido: sem frete, com entrada + parcelamento', () => {
                 cy.get('#senha').type('@Lcn1998'); // Senha Login
                 cy.get('#btn-login').click() // Botão Login
 
-                cy.get('#app-block-caixa').click().wait(6000) //abrir caixa
-                cy.get('#sbm-shorcut-mnu_RecebimentoPedidos').click().wait(8000) //clicar Recebimento de pedidos
+                cy.get('#app-block-caixa').click().wait(6000) //Abrir caixa
+                cy.get('#sbm-shorcut-mnu_RecebimentoPedidos').click().wait(11000) //clicar recebimento pedidos
                 cy.get('[aria-rowindex="1"] > [aria-describedby="dx-col-76"]').click() //clicar primeiro pedido
-                cy.get('#frmRecebimentoPedidos_BtnBaixaPedidoVenda_material_button > .mat-button-wrapper').click({force:true}).wait(10000) //clicar botão avançar
-
+                cy.get('#frmRecebimentoPedidos_BtnBaixaPedidoVenda_material_button > .mat-button-wrapper').click({force:true}).wait(9000) //clicar botão avançar
+                 
                 cy.contains('td', 'Não').click({force:true}) //1 clicar Baixar o pedido
                 cy.get('#mat-checkbox-3 > .mat-checkbox-layout > .mat-checkbox-inner-container').click() //2 clicar Baixar o pedido
-                cy.get('#frmRecebimentoPedidos_BotaoAvancar_material_button > .mat-button-wrapper').click({force:true}) //clicar botão avançar
+                cy.get('#frmRecebimentoPedidos_BotaoAvancar_material_button > .mat-button-wrapper').click() //clicar botão avançar
 
-                cy.get('#frmRecebimentoPedidos_BotaoWizardConcluir_material_button > .mat-button-wrapper').click({force:true}).wait(1000) //clicar botão concluir
-                cy.get('.swal2-confirm').click({force:true}) //Clicar SIM, confirmar baixa pedido
-
-                //clicar para Concluir a baixa do pedido
-                cy.get('#frmRecebimentoPedidos_BotaoWizardConcluir_material_button > .mat-button-wrapper').click({force:true}).wait(500) //clicar botão concluir
+                cy.get('#frmRecebimentoPedidos_BotaoWizardConcluir_material_button > .mat-button-wrapper').click().wait(1000) //clicar botão concluir
                 cy.get('.swal2-confirm').click().wait(35000) //Clicar SIM, confirmar baixa pedido
 
                 cy.get('#frmRecebimentoPedidos_ModalDocumentos_modal_dynamic_header_label').should('exist').and('be.visible') //DOCUMENTOS
