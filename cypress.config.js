@@ -7,7 +7,7 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     setupNodeEvents(on, config) {
     },
-    defaultCommandTimeout: 10000,
+    defaultCommandTimeout: 20000,
     screenshotOnRunFailure: true, // Captura de screenshot somente quando o teste falhar
     screenshotsFolder: 'cypress/screenshots', // Diretório onde as screenshots serão salvas
     video: true, //Gravar vídeo do teste

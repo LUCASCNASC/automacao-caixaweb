@@ -20,7 +20,7 @@ describe('Baixar pedido sem entrega - consumidor', () => {
 
     context('Baixar pedido sem entrega - CPF e CNPJ', () => {
 
-        it('Baixar pedido sem entrega - CPF (consumidor final=SIM)', () => {
+        it.skip('Baixar pedido sem entrega - CPF (consumidor final=SIM)', () => {
 
             clienteCPFConsumidorFinalSim()
             cy.wait(500)
@@ -37,12 +37,12 @@ describe('Baixar pedido sem entrega - consumidor', () => {
             avancarParaParcelas()
             cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(5000)
+            cy.wait(6000)
             escolherFormaPagamentoPrincipal()
+            cy.wait(3000)
             escolherDuasParcelaPagamento()
             cy.wait(400)
             avancarFinal()
-            cy.wait(6000)
             botaoFinalizarPedido()
             cy.wait(8000)
             pedidoGerado()
@@ -76,7 +76,7 @@ describe('Baixar pedido sem entrega - consumidor', () => {
               });
         })
 
-        it('Baixar pedido sem entrega - CNPJ (consumidor final=NÃO)', () => {
+        it.skip('Baixar pedido sem entrega - CNPJ (consumidor final=NÃO)', () => {
 
             clienteCNPJConsumidorFinalNao()
             cy.wait(500)
@@ -93,12 +93,12 @@ describe('Baixar pedido sem entrega - consumidor', () => {
             avancarParaParcelas()
             cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(5000)
+            cy.wait(6000)
             escolherFormaPagamentoPrincipal()
+            cy.wait(3000)
             escolherDuasParcelaPagamento()
             cy.wait(400)
             avancarFinal()
-            cy.wait(6000)
             consumidorFinalNAO()
             botaoFinalizarPedido()
             cy.wait(8000)

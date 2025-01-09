@@ -54,7 +54,7 @@ Cypress.Commands.add('loginCaixaWeb', (username, password) => {
 Cypress.Commands.add('loginPedidoWeb', (username, password) => {
 
   // Visite a página de login
-  cy.visit('http://10.7.0.42:2701/');
+  cy.visit('http://10.7.0.42:2401/');
 
   // Preencha o campo de nome de usuário
   cy.get('#txtusername').type('sabium.automacao');
@@ -82,5 +82,5 @@ Cypress.Commands.add('visitCaixaWeb', () => {
 
 // Comando personalizado para visitar a página Pedido Web
 Cypress.Commands.add('visitPedidoWeb', () => {
-  cy.visit('http://10.7.0.42:2701/');
+  cy.visit('http://10.7.0.42:2401/');
 });

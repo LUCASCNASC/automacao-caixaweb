@@ -25,7 +25,7 @@ describe('Baixar pedido sem frete - apenas com parcelamento', () => {
 
     context('Baixar pedido sem frete - apenas com parcelamento', () => {
 
-        it.only('Baixar pedido sem frete - apenas com parcelamento', () => {
+        it('Baixar pedido sem frete - apenas com parcelamento', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()

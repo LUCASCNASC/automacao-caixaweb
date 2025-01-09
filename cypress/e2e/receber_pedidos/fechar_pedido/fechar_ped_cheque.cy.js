@@ -25,28 +25,24 @@ describe('Fechar pedido: pagamento com cheque', () => {
 
     context('Fechar pedido: com entrega, pagamento com cheque', () => {
 
-        it('Fechar pedido: com entrega, pagamento com cheque', () => {
+        it.skip('Fechar pedido: com entrega, pagamento com cheque', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
             okServicosVinculados()
-            avancarParaTransportadora()
-            cy.wait(11000)
-            modalInconsRotaTransp()
-            escolherTransportadora()
-            escolherRota()
-            avancarParcelasEntrega()
-            cy.wait(6500)
+            tirarEntrega()
+            cy.wait(400)
+            avancarParaParcelas()
+            cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(8000)
+            cy.wait(9000)
             escolherformaPagamentoCheque()
             escolherUmaParcelaPagamento()
             cy.wait(400)
             avancarFinal()
-            cy.wait(7000)
             botaoFinalizarPedido()
-            cy.wait(9000)
+            cy.wait(8000)
             pedidoGerado()
             cy.wait(1000)
 

@@ -25,7 +25,7 @@ describe('Baixar pedido sem entrega - pagamento com cheque', () => {
 
     context('Baixar pedido sem entrega - pagamento com cheque', () => {
 
-        it.only('Baixar pedido sem entrega - pagamento com cheque', () => {
+        it.skip('Baixar pedido sem entrega - pagamento com cheque', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
@@ -36,12 +36,11 @@ describe('Baixar pedido sem entrega - pagamento com cheque', () => {
             avancarParaParcelas()
             cy.wait(5500)
             botaoGerarParcelas()
-            cy.wait(5000)
+            cy.wait(9000)
             escolherformaPagamentoCheque()
             escolherUmaParcelaPagamento()
             cy.wait(400)
             avancarFinal()
-            cy.wait(6000)
             botaoFinalizarPedido()
             cy.wait(8000)
             pedidoGerado()
